@@ -15,7 +15,7 @@ class TestInsert(unittest.TestCase):
 
         captured_output = io.StringIO()
         sys.stdout = captured_output
-        RBT.to_string(rbt.root)
+        rbt.to_string()
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), "9(7(6(_, _), 8(_, _)), 10(_, _))")
 
@@ -41,7 +41,7 @@ class TestRotations(unittest.TestCase):
         self.rbt.left_rotate(self.rbt.root)
         captured_output = io.StringIO()
         sys.stdout = captured_output
-        RBT.to_string(self.rbt.root)
+        self.rbt.to_string()
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), "7(4(2(1(_, _), 3(_, _)), 5(_, _)), 13(_, _))")
 
@@ -49,7 +49,7 @@ class TestRotations(unittest.TestCase):
         self.rbt.right_rotate(self.rbt.root.left)
         captured_output = io.StringIO()
         sys.stdout = captured_output
-        RBT.to_string(self.rbt.root)
+        self.rbt.to_string()
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), "4(1(_, 2(_, 3(_, _))), 7(5(_, _), 13(_, _)))")
 

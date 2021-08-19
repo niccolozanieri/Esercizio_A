@@ -20,16 +20,17 @@ class RBT(BST):
         super().__init__()
         self.root = RBT.NIL
 
-    @staticmethod
-    def to_string(x):
-        if x is not RBT.NIL:
-            print(str(x.key) + "(", end='')
-            RBT.to_string(x.left)
-            print(", ", end='')
-            RBT.to_string(x.right)
-            print(")", end='')
-        else:
-            print("_", end='')
+    def to_string(self):
+        def _to_string(x):
+            if x is not RBT.NIL:
+                print(str(x.key) + "(", end='')
+                _to_string(x.left)
+                print(", ", end='')
+                _to_string(x.right)
+                print(")", end='')
+            else:
+                print("_", end='')
+        _to_string(self.root)
 
     def insert(self, key):
         y = RBT.NIL
