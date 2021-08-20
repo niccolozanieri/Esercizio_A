@@ -79,11 +79,13 @@ class TestBSTMainFuncts(unittest.TestCase):
         self.assertEqual(BST.subtree_get_min(self.bst.root), self.bst.get_min())
 
     def test_inorder_tree_walk(self):
+        self.bst.insert(1)
+        self.bst.insert(5)
         captured_output = io.StringIO()
         sys.stdout = captured_output
         self.bst.inorder_tree_walk()
         sys.stdout = sys.__stdout__
-        self.assertEqual(captured_output.getvalue(), "-1 1 2 3 4 5 7 13 ")
+        self.assertEqual(captured_output.getvalue(), "-1 1 1 2 3 4 5 5 7 13 ")
 
     def test_successor(self):
         self.assertEqual(BST.successor(self.bst, self.bst.root).key, 5)
