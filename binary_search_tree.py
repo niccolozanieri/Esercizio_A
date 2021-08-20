@@ -132,28 +132,26 @@ class BST:
 
         _inorder_tree_walk(self.root)
 
-    @staticmethod
-    def successor(bst, x):
+    def successor(self, x):
         if x is None:
             return None
         elif x.right is not None:
             return BST.subtree_get_min(x.right)
         else:
             y = x
-            while y is not bst.root and y is y.p.right:
+            while y is not self.root and y is y.p.right:
                 y = y.p
 
             return y.p
 
-    @staticmethod
-    def predecessor(bst, x):
+    def predecessor(self, x):
         if x is None:
             return None
         elif x.left is not None:
             return BST.subtree_get_max(x.left)
         else:
             y = x
-            while y is not bst.root and y is y.p.left:
+            while y is not self.root and y is y.p.left:
                 y = y.p
 
             return y.p

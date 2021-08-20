@@ -88,20 +88,20 @@ class TestBSTMainFuncts(unittest.TestCase):
         self.assertEqual(captured_output.getvalue(), "-1 1 1 2 3 4 5 5 7 13 ")
 
     def test_successor(self):
-        self.assertEqual(BST.successor(self.bst, self.bst.root).key, 5)
-        self.assertEqual(BST.successor(self.bst, self.bst.root.right.right), None)
-        self.assertEqual(BST.successor(self.bst, self.bst.root.left.left.left).key, 1)
+        self.assertEqual(self.bst.successor(self.bst.root).key, 5)
+        self.assertEqual(self.bst.successor(self.bst.root.right.right), None)
+        self.assertEqual(self.bst.successor(self.bst.root.left.left.left).key, 1)
 
         bst1 = BST()
-        self.assertEqual(BST.successor(bst1, bst1.root), None)
+        self.assertEqual(bst1.successor(bst1.root), None)
 
     def test_predecessor(self):
-        self.assertEqual(BST.predecessor(self.bst, self.bst.root).key, 3)
-        self.assertEqual(BST.predecessor(self.bst, self.bst.root.left.left.left), None)
-        self.assertEqual(BST.predecessor(self.bst, self.bst.root.right).key, 5)
+        self.assertEqual(self.bst.predecessor(self.bst.root).key, 3)
+        self.assertEqual(self.bst.predecessor(self.bst.root.left.left.left), None)
+        self.assertEqual(self.bst.predecessor(self.bst.root.right).key, 5)
 
         bst1 = BST()
-        self.assertEqual(BST.predecessor(bst1, bst1.root), None)
+        self.assertEqual(bst1.predecessor(bst1.root), None)
 
     def test_transplant(self):
         v = BSTNode(2)
