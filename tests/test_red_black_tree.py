@@ -26,7 +26,7 @@ class TestInsert(unittest.TestCase):
         self.assertEqual(rbt.root.right.colour, Colours.BLACK)
 
 
-class TestRotations(unittest.TestCase):
+class TestMainFuncts(unittest.TestCase):
     def setUp(self):
         self.rbt = RBT()
         self.rbt.insert(4)
@@ -52,6 +52,16 @@ class TestRotations(unittest.TestCase):
         self.rbt.to_string()
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), "4(1(_, 2(_, 3(_, _))), 7(5(_, _), 13(_, _)))")
+
+    def test_height(self):
+        self.assertEqual(self.rbt.get_height(), 2)
+
+        rbt1 = RBT()
+        self.assertEqual(rbt1.get_height(), 0)
+        rbt1.insert(4)
+        self.assertEqual(rbt1.get_height(), 0)
+        rbt1.insert(3)
+        self.assertEqual(rbt1.get_height(), 1)
 
 
 if __name__ == "__main__":

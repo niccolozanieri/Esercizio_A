@@ -121,3 +121,19 @@ class RBT(BST):
 
         y.right = x
         x.p = y
+
+    def get_height(self):
+        def _get_height(x):
+            if x is RBT.NIL:
+                return 0
+            else:
+                left_height = _get_height(x.left)
+                right_height = _get_height(x.right)
+
+                return 1 + max(left_height, right_height)
+
+        height = _get_height(self.root)
+        if height == 0:
+            return 0
+        else:
+            return height - 1
