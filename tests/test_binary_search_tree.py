@@ -136,6 +136,14 @@ class TestBSTMainFuncts(unittest.TestCase):
         bst1 = BST()
         self.assertEqual(bst1.delete(bst1.root), None)
 
+    def test_height(self):
+        self.assertEqual(self.bst.get_height(), 4)
+
+        bst1 = BST()
+        self.assertEqual(bst1.get_height(), 0)
+        bst1.insert(1)
+        self.assertEqual(bst1.get_height(), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

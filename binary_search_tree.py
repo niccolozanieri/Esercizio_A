@@ -166,3 +166,15 @@ class BST:
 
         if v is not None:
             v.p = x.p
+
+    def get_height(self):
+        def _get_height(x):
+            if x is None:
+                return 0
+            else:
+                left_height = _get_height(x.left)
+                right_height = _get_height(x.right)
+
+                return 1 + max(left_height, right_height)
+
+        return _get_height(self.root)
