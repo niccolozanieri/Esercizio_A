@@ -137,11 +137,15 @@ class TestBSTMainFuncts(unittest.TestCase):
         self.assertEqual(bst1.delete(bst1.root), None)
 
     def test_height(self):
+        self.bst.insert(1)
+        self.bst.insert(5)
         self.assertEqual(self.bst.get_height(), 4)
 
         bst1 = BST()
         self.assertEqual(bst1.get_height(), 0)
         bst1.insert(1)
+        self.assertEqual(bst1.get_height(), 0)
+        bst1.insert(2)
         self.assertEqual(bst1.get_height(), 1)
 
 

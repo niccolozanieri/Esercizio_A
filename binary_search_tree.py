@@ -177,4 +177,8 @@ class BST:
 
                 return 1 + max(left_height, right_height)
 
-        return _get_height(self.root) - 1
+        height = _get_height(self.root)
+        if height == 0:
+            return 0
+        else:
+            return height - 1
