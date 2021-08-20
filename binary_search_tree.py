@@ -25,7 +25,7 @@ class BST:
         z.p = y
         if y is None:
             self.root = z
-        elif y.key > z.key:
+        elif y.key >= z.key:
             y.left = z
         else:
             y.right = z
@@ -177,4 +177,4 @@ class BST:
 
                 return 1 + max(left_height, right_height)
 
-        return _get_height(self.root)
+        return _get_height(self.root) - 1
