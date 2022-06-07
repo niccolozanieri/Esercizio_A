@@ -1,0 +1,7 @@
+\begin{tabular}{rrrr}
+\toprule
+   Altezza ABR = n &   Altezza ARN &   lg n &   Altezza ARN / lg n \\
+\midrule
+              1111 &            17 & 10.118 &                 1.68 \\
+\bottomrule
+\end{tabular}

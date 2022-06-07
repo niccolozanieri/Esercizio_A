@@ -167,7 +167,7 @@ class BST:
         if v is not None:
             v.p = x.p
 
-    def get_height(self):
+    def get_height(self): # Many thanks to Apurva Sharma at https://favtutor.com/blogs/binary-tree-height
         def _get_height(x):
             if x is None:
                 return 0

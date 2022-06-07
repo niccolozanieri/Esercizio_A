@@ -1,12 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from random import randint
 from timeit import default_timer as timer
 from tabulate import tabulate
 
 from binary_search_tree import BST
-from red_black_tree import RBT
-
 
 start_test = timer()
 
@@ -80,15 +77,7 @@ f = open('test_data/test1_table.txt', 'w')
 f.write(tabulate(datas1, headers=['# Nodi', 'Inserimento', 'Ricerca', 'Cancellazione', 'Altezza'], tablefmt='latex_booktabs'))
 f.close()
 
-
-
-
-
-
-
 end_test = timer()
-print(end_test - start_test)
+print(str(end_test - start_test) + "s")
+
 plt.show()
-
-
-

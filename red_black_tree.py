@@ -14,15 +14,14 @@ class RBTNode(BSTNode):
 
 
 class RBT(BST):
-    NIL = RBTNode()
-
     def __init__(self):
         super().__init__()
-        self.root = RBT.NIL
+        self.NIL = RBTNode()
+        self.root = self.NIL
 
     def to_string(self):
         def _to_string(x):
-            if x is not RBT.NIL:
+            if x is not self.NIL:
                 print(str(x.key) + "(", end='')
                 _to_string(x.left)
                 print(", ", end='')
@@ -33,11 +32,11 @@ class RBT(BST):
         _to_string(self.root)
 
     def insert(self, key):
-        y = RBT.NIL
+        y = self.NIL
         x = self.root
         z = RBTNode(key)
 
-        while x is not RBT.NIL:
+        while x is not self.NIL:
             y = x
             if x.key >= z.key:
                 x = x.left
@@ -45,7 +44,7 @@ class RBT(BST):
                 x = x.right
 
         z.p = y
-        if y is RBT.NIL:
+        if y is self.NIL:
             self.root = z
         elif y.key > z.key:
             y.left = z
@@ -53,8 +52,8 @@ class RBT(BST):
             y.right = z
 
         z.colour = Colours.RED
-        z.left = RBT.NIL
-        z.right = RBT.NIL
+        z.left = self.NIL
+        z.right = self.NIL
         self.insert_fixup(z)
 
     def insert_fixup(self, z):
@@ -92,11 +91,11 @@ class RBT(BST):
     def left_rotate(self, x):
         y = x.right
         x.right = y.left
-        if y.left is not RBT.NIL:
+        if y.left is not self.NIL:
             y.left.p = x
 
         y.p = x.p
-        if x.p is RBT.NIL:
+        if x.p is self.NIL:
             self.root = y
         elif x is x.p.left:
             x.p.left = y
@@ -110,21 +109,22 @@ class RBT(BST):
         y = x.left
         x.left = y.right
 
-        if x.left is not RBT.NIL:
-            x.left.p = x
-        if x.p is RBT.NIL:
-            self.root = y
-        elif x is x.p.left:
-            x.p.left = y
-        else:
-            x.p.right = y
+        if y.right != self.NIL:
+            y.right.p = x
 
+        y.p = x.p
+        if x.p is self.NIL:
+            self.root = y
+        elif x is x.p.right:
+            x.p.right = y
+        else:
+            x.p.left = y
         y.right = x
         x.p = y
 
     def get_height(self):
         def _get_height(x):
-            if x is RBT.NIL:
+            if x is self.NIL:
                 return 0
             else:
                 left_height = _get_height(x.left)
